@@ -1,7 +1,7 @@
 import React, { useState, memo } from 'react';
 
+// Fixed typo: Removed the broken comment inside the array
 const achievements = [
-  
   {
     title: "🚀 Enterprise React Apps",
     description: "Delivered performant apps using React, Tailwind & Node.js.",
@@ -20,7 +20,8 @@ const achievements = [
   },
 ];
 
-const AchievementCard = ({ title, description }) => {
+// Memoized card to improve performance
+const AchievementCard = memo(({ title, description }) => {
   const [showContent, setShowContent] = useState(false);
 
   return (
@@ -43,15 +44,15 @@ const AchievementCard = ({ title, description }) => {
       </button>
     </div>
   );
-};
+});
 
 const Achievement = () => (
-  <section className="py-24 px-6 max-w-6xl mx-auto bg-purple-50 dark:bg-gray-900">
+  <section className="py-24 px-4 sm:px-6 md:px-10 lg:px-12 max-w-7xl mx-auto bg-purple-50 dark:bg-gray-900">
     <h2 className="text-4xl font-bold mb-10 text-center text-purple-800 dark:text-purple-300">
       Achievements
     </h2>
 
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {achievements.map((item, idx) => (
         <AchievementCard key={idx} title={item.title} description={item.description} />
       ))}
