@@ -1,6 +1,5 @@
 import React, { useState, memo } from 'react';
 
-// Fixed typo: Removed the broken comment inside the array
 const achievements = [
   {
     title: "🚀 Enterprise React Apps",
@@ -20,25 +19,24 @@ const achievements = [
   },
 ];
 
-// Memoized card to improve performance
 const AchievementCard = memo(({ title, description }) => {
   const [showContent, setShowContent] = useState(false);
 
   return (
-    <div className="p-6 rounded-2xl bg-white dark:bg-gray-800 border border-purple-300 dark:border-purple-600 shadow-lg hover:shadow-purple-500 transition-all duration-300">
-      <h3 className="text-xl font-semibold text-purple-800 dark:text-purple-100 mb-2">
+    <div className="group p-6 rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 hover:from-purple-800 hover:to-purple-900 border border-gray-700 shadow-xl transition-all duration-300">
+      <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-purple-300 transition">
         {title}
       </h3>
 
       {showContent && (
-        <p className="text-sm text-purple-600 dark:text-purple-300 mb-3 leading-relaxed">
+        <p className="text-sm text-gray-300 mb-4 leading-relaxed">
           {description}
         </p>
       )}
 
       <button
         onClick={() => setShowContent(!showContent)}
-        className="mt-2 text-sm px-4 py-1 rounded-md bg-purple-600 text-white hover:bg-purple-700 transition"
+        className="text-sm px-4 py-1 rounded-md bg-purple-600 hover:bg-purple-700 text-white transition"
       >
         {showContent ? 'Hide Details' : 'Show Details'}
       </button>
@@ -47,12 +45,12 @@ const AchievementCard = memo(({ title, description }) => {
 });
 
 const Achievement = () => (
-  <section className="py-24 px-4 sm:px-6 md:px-10 lg:px-12 max-w-7xl mx-auto bg-purple-50 dark:bg-gray-900">
-    <h2 className="text-4xl font-bold mb-10 text-center text-purple-800 dark:text-purple-300">
+  <section className="py-24 px-4 sm:px-6 md:px-10 lg:px-12 max-w-7xl mx-auto bg-black">
+    <h2 className="text-4xl font-bold mb-14 text-center text-white">
       Achievements
     </h2>
 
-    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {achievements.map((item, idx) => (
         <AchievementCard key={idx} title={item.title} description={item.description} />
       ))}
