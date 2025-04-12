@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 
 export default function Contact() {
   return (
-    <section className="min-h-screen py-24 px-4 sm:px-6 max-w-3xl mx-auto bg-white dark:bg-black rounded-xl shadow-md transition-all duration-300">
+    <section className="min-h-screen py-24 px-4 sm:px-6 max-w-3xl mx-auto bg-[#111827] text-white rounded-xl shadow-md transition-all duration-300">
       <motion.h2
         initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="text-4xl font-bold mb-10 text-center text-gray-900 dark:text-purple-300"
+        className="text-4xl font-bold mb-10 text-center text-pink-300"
       >
         Let's Connect
       </motion.h2>
@@ -24,7 +24,7 @@ export default function Contact() {
             name="name"
             placeholder="Your Name"
             defaultValue="Neeraj Mehta"
-            className="w-full px-4 py-3 border border-purple-300 dark:border-purple-600 rounded-md dark:bg-gray-800 dark:text-white bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
+            className="w-full px-4 py-3 border border-pink-500 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
           />
         </motion.div>
 
@@ -38,7 +38,7 @@ export default function Contact() {
             name="email"
             placeholder="Email Address"
             defaultValue="neerajmehta985@gmail.com"
-            className="w-full px-4 py-3 border border-purple-300 dark:border-purple-600 rounded-md dark:bg-gray-800 dark:text-white bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
+            className="w-full px-4 py-3 border border-pink-500 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
           />
         </motion.div>
 
@@ -51,7 +51,7 @@ export default function Contact() {
             name="message"
             placeholder="Your Message"
             rows="5"
-            className="w-full px-4 py-3 border border-purple-300 dark:border-purple-600 rounded-md dark:bg-gray-800 dark:text-white bg-gray-50 text-gray-800 focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
+            className="w-full px-4 py-3 border border-pink-500 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
           ></textarea>
         </motion.div>
 
@@ -62,7 +62,7 @@ export default function Contact() {
         >
           <button
             type="submit"
-            className="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-3 rounded-md shadow-lg transition hover:shadow-pink-500"
+            className="w-full bg-pink-600 hover:bg-pink-500 text-white font-semibold py-3 rounded-md shadow-lg transition hover:shadow-pink-500"
           >
             Send Message
           </button>

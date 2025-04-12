@@ -6,7 +6,6 @@ import Blog from "./assets/Component/Blog";
 import Home from "./assets/Component/Home";
 import Contact from "./assets/Component/Contact"; // ✅ Add this import
 import Navbar from "./assets/Component/Navbar";
-
 export default function App() {
   return (
     <div className="dark"> {/* ✅ Enables dark mode based on class */}

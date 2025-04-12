@@ -63,7 +63,7 @@ const Blog = () => {
 
   return (
     <section className="py-24 px-6 max-w-6xl mx-auto text-white">
-      <h2 className="text-4xl font-bold mb-12 text-purple-300 text-center">
+      <h2 className="text-4xl font-bold mb-12 text-pink-300 text-center">
         Latest Blog Posts
       </h2>
 
@@ -71,10 +71,10 @@ const Blog = () => {
         {posts.map((post, index) => (
           <article
             key={index}
-            className="border border-purple-600 p-6 rounded-xl bg-gray-800 shadow-md hover:shadow-purple-700 transition duration-200"
+            className="border border-pink-600 p-6 rounded-xl bg-gray-800 shadow-md hover:shadow-pink-700 transition duration-200"
           >
-            <h3 className="text-2xl font-semibold text-purple-200">{post.title}</h3>
-            <p className="text-purple-400 mt-2">{post.preview}</p>
+            <h3 className="text-2xl font-semibold text-pink-200">{post.title}</h3>
+            <p className="text-pink-400 mt-2">{post.preview}</p>
 
             {activeIndex === index && (
               <p className="mt-4 text-gray-300">{post.content}</p>
@@ -82,7 +82,7 @@ const Blog = () => {
 
             <button
               onClick={() => toggleContent(index)}
-              className="mt-4 inline-block bg-purple-600 hover:bg-purple-500 text-white px-4 py-2 rounded-lg transition"
+              className="mt-4 inline-block bg-pink-600 hover:bg-pink-500 text-white px-4 py-2 rounded-lg transition"
             >
               {activeIndex === index ? "Show Less" : "Read More"}
             </button>

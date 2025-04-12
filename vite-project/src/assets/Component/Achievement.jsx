@@ -23,8 +23,8 @@ const AchievementCard = memo(({ title, description }) => {
   const [showContent, setShowContent] = useState(false);
 
   return (
-    <div className="group p-6 rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900 hover:from-purple-800 hover:to-purple-900 border border-gray-700 shadow-xl transition-all duration-300">
-      <h3 className="text-2xl font-semibold text-white mb-2 group-hover:text-purple-300 transition">
+    <div className="group p-6 rounded-2xl bg-gray-800 hover:bg-gray-700 border border-pink-600 shadow-md hover:shadow-pink-700 transition-all duration-300">
+      <h3 className="text-2xl font-semibold text-pink-200 mb-2 group-hover:text-pink-300 transition">
         {title}
       </h3>
 
@@ -36,7 +36,7 @@ const AchievementCard = memo(({ title, description }) => {
 
       <button
         onClick={() => setShowContent(!showContent)}
-        className="text-sm px-4 py-1 rounded-md bg-purple-600 hover:bg-purple-700 text-white transition"
+        className="text-sm mt-2 px-4 py-2 rounded-md bg-pink-600 hover:bg-pink-500 text-white transition"
       >
         {showContent ? 'Hide Details' : 'Show Details'}
       </button>
@@ -45,8 +45,8 @@ const AchievementCard = memo(({ title, description }) => {
 });
 
 const Achievement = () => (
-  <section className="py-24 px-4 sm:px-6 md:px-10 lg:px-12 max-w-7xl mx-auto bg-black">
-    <h2 className="text-4xl font-bold mb-14 text-center text-white">
+  <section className="py-24 px-4 sm:px-6 md:px-10 lg:px-12 max-w-7xl mx-auto  text-white">
+    <h2 className="text-4xl font-bold mb-14 text-center text-pink-300">
       Achievements
     </h2>
 

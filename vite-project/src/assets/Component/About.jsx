@@ -1,85 +1,170 @@
-import React from 'react'
+import React, { useMemo, Suspense, lazy } from 'react'
 import { motion } from 'framer-motion'
-import { FaReact, FaNodeJs, FaGithub, FaFigma } from 'react-icons/fa'
+import { FaDownload } from 'react-icons/fa' // Load directly (critical icon)
+import File from '../Files/Neeraj.pdf'
 
-export default function About() {
+// Lazy load tech stack icons only
+const FaReact = lazy(() => import('react-icons/fa').then(mod => ({ default: mod.FaReact })))
+const FaNodeJs = lazy(() => import('react-icons/fa').then(mod => ({ default: mod.FaNodeJs })))
+const FaGithub = lazy(() => import('react-icons/fa').then(mod => ({ default: mod.FaGithub })))
+const FaFigma = lazy(() => import('react-icons/fa').then(mod => ({ default: mod.FaFigma })))
+
+const About = React.memo(() => {
+  const techIcons = useMemo(() => [FaReact, FaNodeJs, FaGithub, FaFigma], [])
+
+  const fadeIn = useMemo(() => ({
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  }), [])
+
   return (
-    <section className="py-24 px-6 bg-gray-800 text-gray-100 max-w-5xl mx-auto transition">
-      {/* Heading */}
-      <motion.h2
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl font-bold mb-6 text-pink-400 animate-glow"
+    <section className="py-24 px-6 bg-gray-900 text-gray-100 max-w-5xl mx-auto">
+      <motion.div
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.4 }}
       >
-        About Me
-      </motion.h2>
+        <h2 className="text-4xl font-bold mb-6 text-pink-400">About Me</h2>
+      </motion.div>
 
-      {/* Description */}
       <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.4, delay: 0.1 }}
         className="text-lg leading-relaxed text-gray-300"
       >
         I'm a software developer who believes in building elegant, scalable web applications.
         With a passion for React and frontend design, I transform ideas into beautiful, interactive user interfaces that not only work well but also feel intuitive.
       </motion.p>
 
-      {/* Grid Cards */}
       <motion.div
         className="grid md:grid-cols-2 gap-10 mt-10"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.7 }}
-        viewport={{ once: true }}
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
       >
-        {/* Core Skills */}
         <div>
-          <h3 className="text-xl font-semibold text-pink-300 mb-3 animate-glow">
-            🔧 Core Skills
-          </h3>
+          <h3 className="text-xl font-semibold text-pink-300 mb-3">🔧 Core Skills</h3>
           <ul className="list-disc list-inside space-y-1 text-gray-400">
-            <li className="hover:text-pink-400 transition">React.js, Tailwind CSS, Next.js</li>
-            <li className="hover:text-pink-400 transition">Framer Motion & UI/UX Design</li>
-            <li className="hover:text-pink-400 transition">REST APIs, Firebase, Node.js</li>
-            <li className="hover:text-pink-400 transition">Git, Agile workflows, CI/CD</li>
+            {[
+              "React.js, Tailwind CSS, Next.js",
+              "Framer Motion & UI/UX Design",
+              "REST APIs, Firebase, Node.js",
+              "Git, Agile workflows, CI/CD",
+            ].map((skill, idx) => (
+              <li key={idx} className="hover:text-pink-400 transition">{skill}</li>
+            ))}
           </ul>
         </div>
-
-        {/* Mindset */}
         <div>
-          <h3 className="text-xl font-semibold text-pink-300 mb-3 animate-glow">
-            💡 Developer Mindset
-          </h3>
+          <h3 className="text-xl font-semibold text-pink-300 mb-3">💡 Developer Mindset</h3>
           <ul className="list-disc list-inside space-y-1 text-gray-400">
-            <li className="hover:text-pink-400 transition">Pixel-perfect attention to detail</li>
-            <li className="hover:text-pink-400 transition">Code readability & reusability</li>
-            <li className="hover:text-pink-400 transition">Open-source contributor & lifelong learner</li>
-            <li className="hover:text-pink-400 transition">Team player who loves collaboration</li>
+            {[
+              "Pixel-perfect attention to detail",
+              "Code readability & reusability",
+              "Open-source contributor & lifelong learner",
+              "Team player who loves collaboration",
+            ].map((trait, idx) => (
+              <li key={idx} className="hover:text-pink-400 transition">{trait}</li>
+            ))}
           </ul>
         </div>
       </motion.div>
 
-      {/* Animated & Glowing Icons */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.8, duration: 0.8 }}
         className="mt-16 flex justify-center gap-10 text-4xl text-pink-400"
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.4, delay: 0.3 }}
       >
-        {[FaReact, FaNodeJs, FaGithub, FaFigma].map((Icon, i) => (
-          <motion.div
-            key={i}
-            whileHover={{ scale: 1.3, rotate: 5 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="animate-glow transition duration-300"
-          >
-            <Icon />
-          </motion.div>
+        {techIcons.map((Icon, i) => (
+          <Suspense fallback={null} key={i}>
+            <motion.div
+              whileHover={{ scale: 1.2, rotate: 3 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className="transition"
+            >
+              <Icon />
+            </motion.div>
+          </Suspense>
         ))}
+      </motion.div>
+
+      {/* Resume section loaded immediately with no lazy icons */}
+      <motion.div
+        className="mt-20"
+        variants={fadeIn}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.4, delay: 0.4 }}
+      >
+        <h2 className="text-4xl font-bold mb-6 text-pink-400">Resume</h2>
+
+        <a
+          href={File}
+          download="Neeraj_Resume.pdf"
+          className="inline-flex items-center gap-2 px-5 py-3 border border-pink-500 text-pink-400 rounded-xl hover:bg-pink-500 hover:text-white transition mb-10"
+        >
+          <FaDownload /> Download Resume
+        </a>
+
+        <div className="grid md:grid-cols-2 gap-12 mt-6">
+          <div>
+            <h3 className="text-2xl font-semibold text-pink-300 mb-4">💼 Work Experience</h3>
+            <ul className="space-y-6 text-gray-300">
+              <li>
+                <strong>Frontend Developer</strong> — XYZ Tech (2023 - Present)
+                <br />
+                <span className="text-sm text-gray-400">React, Tailwind CSS, UI/UX</span>
+              </li>
+              <li>
+                <strong>Intern - Web Developer</strong> — ABC Corp (2022)
+                <br />
+                <span className="text-sm text-gray-400">Built landing pages & dashboards</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-2xl font-semibold text-pink-300 mb-4">🎓 Education</h3>
+            <ul className="space-y-6 text-gray-300">
+              <li>
+                <strong>Bachelor of Computer Science</strong> — University Name (2020 - 2024)
+                <br />
+                <span className="text-sm text-gray-400">CGPA: 8.6 / 10</span>
+              </li>
+              <li>
+                <strong>Certifications</strong>
+                <br />
+                <span className="text-sm text-gray-400">React, Node.js, Firebase - Coursera</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-16">
+          <h3 className="text-2xl font-semibold text-pink-300 mb-4">🧠 Skills</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-gray-400">
+            {[
+              "React.js", "Next.js", "Tailwind CSS", "Framer Motion", "Firebase",
+              "Node.js", "Git & GitHub", "MongoDB", "REST APIs", "Figma"
+            ].map((skill, idx) => (
+              <div key={idx} className="hover:text-pink-400 transition">{skill}</div>
+            ))}
+          </div>
+        </div>
       </motion.div>
     </section>
   )
-}
+})
+
+export default About
