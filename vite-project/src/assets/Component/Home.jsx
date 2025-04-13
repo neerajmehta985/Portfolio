@@ -61,7 +61,7 @@ const Home = () => (
       transition={{ duration: 0.7, ease: "easeOut" }}
       className="text-5xl md:text-6xl font-extrabold mb-4"
     >
-      Hello, I’m <span className="text-pink-500 animate-glow">Aman</span>
+      Hello, I’m <span className="text-pink-500 animate-glow">Neeraj</span>
     </motion.h1>
 
     <motion.p
