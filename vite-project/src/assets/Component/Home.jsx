@@ -70,7 +70,7 @@ const Home = () => (
       transition={{ delay: 0.2, duration: 0.6 }}
       className="text-xl text-gray-300 mb-12"
     >
-      Full Stack Developer • UI/UX Enthusiast • Code Craftsman
+      Full Stack developer Developer • UI/UX Enthusiast • Code Craftsman
     </motion.p>
 
     <motion.div
@@ -85,7 +85,7 @@ const Home = () => (
         <img
           src={Image}
           alt="Neeraj"
-          className="relative w-44 h-44 rounded-full border-4 border-pink-500 object-cover shadow-2xl transition-all duration-500 z-10"
+          className="relative w-48 h-48 rounded-full border-4 border-pink-500 object-cover shadow-2xl transition-all duration-500 z-10"
         />
       </div>
     </motion.div>
